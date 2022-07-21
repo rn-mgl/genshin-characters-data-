@@ -1,13 +1,788 @@
+:root {
+  --light-purple: #a6abc6;
+  --dark-purple: #8387b4;
+  --light-green: #539e99;
+  --dark-green: #42676a;
+  --yellow: #f2b263;
+  --orange: #f2955e;
+  --pink: #f29979;
+  --white: #fdf5f3;
+  --grey: #a6a6a6;
+  --light-grey: #d9d9d9;
+  --black: #26262b;
+
+  --shadow: #00000068;
+
+  --gradient: radial-gradient(#a6abc6 20%, #26262b 65%);
+
+  --text-gradient: linear-gradient(to right, #a6abc6 20%, #539e99 65%);
+
+  --yellow-to-pink: linear-gradient(to bottom, #f2b263, #f29979);
+
+  --radius: 0.5rem;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Kanit", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  background: var(--white);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.backdrop {
+  position: absolute;
+  top: -10%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* single card */
+
+.card-body {
+  width: 15rem;
+  height: 16rem;
+  background: var(--light-grey);
+
+  box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
+
+  border-radius: var(--radius);
+
+  display: grid;
+
+  grid-template-rows: 12rem auto;
+
+  text-align: center;
+
+  transition: 100ms ease-in-out;
+}
+
+.card-body:hover {
+  transform: scale(105%);
+  background-image: linear-gradient(
+    160deg,
+    var(--grey),
+    var(--white),
+    var(--grey)
+  );
+}
+
+.profile-img-container {
+  background: var(--white);
+
+  border-radius: 100%;
+
+  width: 8rem;
+  height: 8rem;
+
+  margin: 2rem auto;
+
+  padding: 0.3rem;
+
+  overflow: hidden;
+}
+
+.profile-img {
+  border-radius: 100%;
+  image-rendering: optimizeSpeed;
+
+  height: 8rem;
+}
+
+.card-name {
+  text-transform: capitalize;
+
+  font-family: "Kanit", sans-serif;
+  color: var(--black);
+  font-size: 1.1rem;
+}
+
+/* character cards */
+
+.cards-container {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+
+  gap: 2rem;
+}
+
+.link-text {
+  text-decoration: none;
+}
+
+/* character page */
+
+.character-page {
+  width: 70vw;
+
+  margin: 5rem auto;
+}
+
+/* home  */
+
+.header {
+  margin: 4rem auto;
+
+  width: 15.8rem;
+
+  font-family: "Kanit", sans-serif;
+  font-size: 2rem;
+  color: var(--light-green);
+
+  cursor: default;
+
+  transition: 100ms ease-in-out;
+}
+
+.header:hover {
+  color: var(--light-purple);
+}
+
+/* page selector */
+
+.arrow {
+  border: solid var(--black);
+  border-width: 0rem 0.3rem 0.3rem 0rem;
+  display: inline-block;
+  padding: 0.3rem;
+
+  position: relative;
+
+  top: 30%;
+  opacity: 0.5;
+
+  cursor: pointer;
+
+  transition: 100ms ease-in-out;
+}
+
+.arrow:hover {
+  opacity: 1;
+}
+
+.left {
+  transform: rotate(135deg);
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  transform: rotate(-45deg);
+}
+
+.pages-square-container {
+  display: flex;
+  justify-content: center;
+
+  gap: 2rem;
+
+  margin: 0rem auto 4rem auto;
+}
+
+.pages-square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: var(--radius);
+
+  background: var(--light-green);
+
+  font-family: "Kanit", sans-serif;
+
+  font-size: 1.2rem;
+
+  color: var(--white);
+
+  cursor: pointer;
+
+  transition: 100ms ease-in-out;
+
+  box-shadow: 0rem 0.2rem 0.2rem var(--shadow);
+}
+
+.pages-square:hover {
+  background: var(--light-purple);
+}
+
+.selected {
+  background: var(--light-purple);
+}
+
+/* loading  */
+
+.blur {
+  width: 100%;
+  height: 100%;
+
+  background: var(--black);
+  filter: blur(2%);
+}
+
+.loader {
+  width: 12rem;
+
+  position: absolute;
+
+  left: 43%;
+
+  top: 35%;
+
+  animation: loading 5s alternate-reverse infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% {
+    fill: var(--dark-purple);
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+  }
+
+  25% {
+    fill: var(--dark-green);
+  }
+
+  50% {
+    transform: rotate(360deg);
+    transform-origin: 50% 50%;
+    fill: var(--light-purple);
+  }
+
+  75% {
+    fill: var(--light-green);
+  }
+
+  100% {
+    fill: var(--pink);
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+  }
+}
+
+/* character profile page */
+
+.character-profile-page {
+  height: auto;
+  margin: 0rem auto;
+}
+
+.home-icon {
+  width: 3rem;
+  transition: 100ms ease-in-out;
+  z-index: 2;
+}
+
+.home-btn {
+  text-decoration: none;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3rem;
+  padding: 1rem;
+  margin: 1rem;
+  height: 2rem;
+
+  border-radius: var(--radius);
+
+  transition: 100ms ease-in-out;
+}
+
+.home-btn:hover {
+  height: 2rem;
+  width: 3rem;
+}
+
+.home-btn:hover .home-icon {
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+}
+
+.home-btn:hover .square {
+  transform: scale(50%, 150%);
+}
+
+.home-btn:hover .triangle {
+  transform: scale(70%, 120%);
+}
+
+/* info panel */
+
+.personal-info-panel {
+  background: var(--white);
+  padding: 2rem;
+
+  height: auto;
+}
+
+.character-main-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  padding-bottom: 2rem;
+}
+
+@media screen and (min-device-width: 1200px) {
+  .name {
+    font-size: 20rem;
+  }
+  .name-and-description-container {
+    width: 60%;
+  }
+  .description {
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (min-device-width: 1900px) {
+  .name {
+    font-size: 25rem;
+  }
+  .name-and-description-container {
+    width: 70%;
+  }
+  .description {
+    margin-top: 5rem;
+  }
+}
+
+.name-and-description-container {
+  margin-right: auto;
+  z-index: 1;
+}
+
+.name {
+  font-family: "Kanit", sans-serif;
+  font-weight: 900;
+  word-wrap: break-word;
+  line-height: 1.2ch;
+  margin-bottom: 1rem;
+  color: var(--black);
+}
+
+.description {
+  text-align: justify;
+  word-break: keep-all;
+  /* text-indent: 2rem; */
+
+  color: var(--black);
+  width: 90%;
+  font-style: italic;
+  font-weight: 400;
+  padding: 0rem 0.5rem;
+}
+
+@media screen and (min-device-width: 1200px) {
+  .character-page-img {
+    height: 35rem;
+    top: 5rem;
+  }
+}
+
+@media screen and (min-device-width: 1900px) {
+  .character-page-img {
+    height: 45rem;
+    top: 3rem;
+  }
+}
+
+.character-page-img {
+  position: absolute;
+  right: 0rem;
+}
+
+.divider {
+  width: 100%;
+  height: 0.2rem;
+
+  background: var(--light-green);
+  border-radius: 1rem;
+
+  margin: 1rem 0rem 2rem 0rem;
+}
+
+.text-info-container {
+  display: flex;
+  gap: 5rem;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar {
+  background: var(--light-purple);
+  padding: 0.2rem 0.6rem;
+
+  border-radius: var(--radius);
+  height: 1.3rem;
+
+  font-family: "Kanit", sans-serif;
+
+  letter-spacing: 0.1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.info-text {
+  color: var(--black);
+  text-align: center;
+}
+
+/* constellations panel  */
+
+.constellation-body {
+  background: var(--black);
+  height: auto;
+  padding: 2rem;
+}
+
+.constellations-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.constellation-header {
+  text-align: center;
+
+  font-size: 3rem;
+
+  font-weight: 700;
+
+  font-family: "Kanit", sans-serif;
+
+  color: var(--light-grey);
+
+  letter-spacing: 0.4rem;
+
+  margin-bottom: 1rem;
+}
+
+.constellation-info-container {
+  width: 40rem;
+  height: 22rem;
+
+  background: var(--white);
+
+  border-radius: var(--radius);
+
+  text-align: center;
+  gap: 1rem;
+
+  letter-spacing: 0.05rem;
+}
+
+.constellation-card-temp {
+  display: flex;
+  height: inherit;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.colored-constellation-card {
+  border-radius: 0.5rem 0rem 0rem 0.5rem;
+  width: 50%;
+  float: left;
+}
+
+.constellation-card {
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+  width: 50%;
+  float: right;
+}
+
+.constellation-name {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.constellation-description {
+  font-style: italic;
+  text-align: justify;
+  text-indent: 2rem;
+  font-weight: 400;
+
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0rem 1rem;
+
+  border-radius: var(--radius);
+
+  margin: 0rem auto;
+}
+/* -- */
+
+.constellation-img {
+  width: 4rem;
+  height: 4rem;
+  transition: 100ms ease-in-out;
+  border-radius: 100%;
+}
+
+.constellation-img:hover {
+  transform: scale(110%);
+  box-shadow: 0rem 0rem 0.5rem 0.2rem var(--shadow);
+  filter: brightness(1.5);
+}
+
+/* talents panel */
+
+.talents-body {
+  background: var(--white);
+
+  padding: 2rem;
+}
+
+.talents-header {
+  text-align: center;
+
+  font-size: 4rem;
+
+  font-weight: 900;
+
+  font-family: "Kanit", sans-serif;
+
+  color: var(--black);
+
+  letter-spacing: 0.4rem;
+}
+
+.talent-img {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 100%;
+  transition: 100ms ease-in-out;
+  background: white;
+}
+
+.talent-img:hover {
+  transform: scale(105%);
+  box-shadow: 0rem 0rem 0.5rem 0.2rem var(--shadow);
+}
+
+/* passive */
+
+.passive-skill-header {
+  text-align: center;
+
+  font-size: 1.3rem;
+
+  font-family: "Quicksand", sans-serif;
+
+  font-weight: 500;
+
+  color: var(--black);
+
+  letter-spacing: 0.2rem;
+
+  margin: 2rem 0rem;
+}
+
+.passive-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+  margin: 4rem 0rem;
+  height: 15rem;
+}
+
+.passive-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15.5rem;
+}
+
+.passive-texts-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+}
+
+.per-passive {
+  text-align: center;
+  width: 16ch;
+  line-height: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.passive-name {
+  font-weight: 600;
+}
+
+.passive-description {
+  text-align: justify;
+}
+
+/* skill */
+
+.skill-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  /* flex-direction: column; */
+
+  gap: 2rem;
+
+  margin: 4rem 0rem;
+}
+
+.skill-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15.5rem;
+}
+
+.skill-texts-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  justify-content: center;
+  gap: 10rem;
+}
+
+.per-skill {
+  text-align: center;
+  line-height: 2rem;
+  width: 16ch;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.skill-name {
+  font-weight: 600;
+  width: 16ch;
+  text-align: center;
+}
+
+.passive-description {
+  text-align: justify;
+}
+
+.see-more-btn {
+  font-family: "Kanit", sans-serif;
+
+  width: fit-content;
+
+  padding: 0.3rem 1rem;
+
+  border-radius: var(--radius);
+  border: none;
+
+  transition: 300ms ease-in-out;
+
+  color: var(--white);
+  line-height: 1.1rem;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  font-style: italic;
+
+  cursor: pointer;
+}
+
+.info-visible {
+  position: fixed;
+
+  width: 30rem;
+  height: auto;
+
+  padding: 1rem;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 300ms ease-in-out;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  text-align: justify;
+
+  text-indent: 2rem;
+
+  box-shadow: 0rem 0rem 2rem 0.5rem var(--shadow);
+}
+
+.upgrades-divider {
+  margin: 2rem 0rem;
+  font-family: "Kanit", sans-serif;
+  font-style: normal;
+  letter-spacing: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--black);
+  text-shadow: 0rem 0.2rem 0.2rem var(--shadow);
+}
+
+.upgrades-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.per-upgrades {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.upgrade-name {
+  width: fit-content;
+  float: left;
+  font-weight: 600;
+  text-indent: 0rem;
+}
+
+.upgrade-value {
+  text-align: end;
+  width: fit-content;
+  float: right;
 }
