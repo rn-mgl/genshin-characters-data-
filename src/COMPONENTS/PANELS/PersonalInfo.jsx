@@ -26,7 +26,8 @@ export default function PersonalInfo(props) {
     const charName =
       props.name?.startsWith("Sangonomiya") ||
       props.name?.startsWith("Kamisato") ||
-      props.name?.startsWith("Arataki")
+      props.name?.startsWith("Arataki") ||
+      props.name?.startsWith("Kaedehara")
         ? props.name?.split(" ")[1]
         : props.name?.startsWith("Raiden")
         ? props.name?.split(" ")[0]
