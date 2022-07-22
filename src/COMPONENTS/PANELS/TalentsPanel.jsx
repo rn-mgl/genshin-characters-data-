@@ -102,30 +102,33 @@ export default function TalentsPanel({ passive, skill, vision, character }) {
                 style={mainColor}
                 className="talent-img"
                 src={`${talentImgUrl}/talent-na`}
-                onError={(e) => (
-                  (e.target.onerror = null),
-                  (e.target.src = `${talentImgUrl}/talent_na`)
-                )}
+                onError={(e) =>
+                  (e.target.onerror = null)(
+                    (e.target.src = `${talentImgUrl}/talent_na`)
+                  )
+                }
                 alt="skill-img"
               />
               <img
                 style={mainColor}
                 className="talent-img"
                 src={`${talentImgUrl}/talent-skill`}
-                onError={(e) => (
-                  (e.target.onerror = null),
-                  (e.target.src = `${talentImgUrl}/talent_skill`)
-                )}
+                onError={(e) =>
+                  (e.target.onerror = null)(
+                    (e.target.src = `${talentImgUrl}/talent_skill`)
+                  )
+                }
                 alt="skill-img"
               />
               <img
                 style={mainColor}
                 className="talent-img"
                 src={`${talentImgUrl}/talent-burst`}
-                onError={(e) => (
-                  (e.target.onerror = null),
-                  (e.target.src = `${talentImgUrl}/talent_burst`)
-                )}
+                onError={(e) =>
+                  (e.target.onerror = null)(
+                    (e.target.src = `${talentImgUrl}/talent_burst`)
+                  )
+                }
                 alt="skill-img"
               />
               {skill.length > 3 && (

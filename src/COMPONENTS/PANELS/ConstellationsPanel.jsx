@@ -52,10 +52,11 @@ export default function ConstellationsPanel({
                   <img
                     className="constellation-img"
                     src={`${constellationImgUrl}-${d.level}`}
-                    onError={(e) => (
-                      (e.target.onerror = null),
-                      (e.target.src = `https://api.genshin.dev/characters/${character}/cosntellation-${d.level}`)
-                    )}
+                    onError={(e) =>
+                      (e.target.onerror = null)(
+                        (e.target.src = `https://api.genshin.dev/characters/${character}/cosntellation-${d.level}`)
+                      )
+                    }
                     alt="constellation-img"
                   />
                   <div className="constellation-name">{d.name}</div>
