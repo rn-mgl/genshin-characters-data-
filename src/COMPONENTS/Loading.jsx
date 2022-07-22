@@ -5,7 +5,6 @@ export default function Loading() {
   return (
     <div>
       <Loader className="loader" />
-      <div className="blur"></div>
     </div>
   );
 }

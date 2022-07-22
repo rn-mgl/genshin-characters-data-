@@ -8,7 +8,8 @@ const AppProvider = ({ children }) => {
   const [characters, setCharacters] = React.useState([]);
   const [currPage, setCurrPage] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
-  let imgSrc = {};
+  const imgSrc = React.useMemo(() => [], []);
+
   let characterData = {};
   let pageLength = 0;
 
@@ -47,7 +48,7 @@ const AppProvider = ({ children }) => {
         }
       });
     }
-  }, [imgSrc, characters]);
+  }, [characters, imgSrc]);
 
   pageLength = Math.ceil(characters.length / 10);
 
