@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 
 export default function CharacterCards() {
   const { characters, currPage } = useGlobalContext();
+  const yaeIdx = characters.indexOf("yae-miko");
+  if (yaeIdx > -1) {
+    characters.splice(yaeIdx, 1);
+  }
 
   const end = (currPage + 1) * 10;
   const start = end - 10;
@@ -14,12 +18,11 @@ export default function CharacterCards() {
   return (
     <div className="cards-container">
       {pagedChars?.map((d) => {
-        if (d !== "yae-miko")
-          return (
-            <Link key={d} to={`/${d}`} className="link-text">
-              <SingleCard id={d} name={d} />
-            </Link>
-          );
+        return (
+          <Link key={d} to={`/${d}`} className="link-text">
+            <SingleCard id={d} name={d} />
+          </Link>
+        );
       })}
     </div>
   );
