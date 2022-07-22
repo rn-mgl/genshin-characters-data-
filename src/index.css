@@ -13,12 +13,6 @@
 
   --shadow: #00000068;
 
-  --gradient: radial-gradient(#a6abc6 20%, #26262b 65%);
-
-  --text-gradient: linear-gradient(to right, #a6abc6 20%, #539e99 65%);
-
-  --yellow-to-pink: linear-gradient(to bottom, #f2b263, #f29979);
-
   --radius: 0.5rem;
 }
 
@@ -28,18 +22,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: "Quicksand", sans-serif;
   background: var(--white);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.backdrop {
-  position: absolute;
-  top: -10%;
-  z-index: -1;
-  opacity: 0.5;
 }
 
 /* single card */
@@ -641,10 +623,6 @@ code {
   font-weight: 600;
 }
 
-.passive-description {
-  text-align: justify;
-}
-
 /* skill */
 
 .skill-container {
@@ -690,10 +668,6 @@ code {
   font-weight: 600;
   width: 16ch;
   text-align: center;
-}
-
-.passive-description {
-  text-align: justify;
 }
 
 .see-more-btn {
@@ -742,38 +716,4 @@ code {
   text-indent: 2rem;
 
   box-shadow: 0rem 0rem 2rem 0.5rem var(--shadow);
-}
-
-.upgrades-divider {
-  margin: 2rem 0rem;
-  font-family: "Kanit", sans-serif;
-  font-style: normal;
-  letter-spacing: 0.5rem;
-  font-size: 1.3rem;
-  color: var(--black);
-  text-shadow: 0rem 0.2rem 0.2rem var(--shadow);
-}
-
-.upgrades-container {
-  display: grid;
-  gap: 1rem;
-}
-
-.per-upgrades {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.upgrade-name {
-  width: fit-content;
-  float: left;
-  font-weight: 600;
-  text-indent: 0rem;
-}
-
-.upgrade-value {
-  text-align: end;
-  width: fit-content;
-  float: right;
 }
