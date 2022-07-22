@@ -13,7 +13,7 @@ export default function CharacterCards() {
 
   return (
     <div className="cards-container">
-      {pagedChars.map((d) => {
+      {pagedChars?.map((d) => {
         if (d !== "yae-miko")
           return (
             <Link key={d} to={`/${d}`} className="link-text">

@@ -35,7 +35,7 @@ const AppProvider = ({ children }) => {
 
   React.useMemo(() => {
     if (characters.length > 0) {
-      characters.forEach((character) => {
+      characters?.forEach((character) => {
         if (character.startsWith("traveler") || character === "thoma") {
           imgSrc[
             character

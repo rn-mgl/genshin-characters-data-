@@ -29,7 +29,7 @@ export default function ConstellationsPanel({
         <div className="constellation-header">CONSTELLATION</div>
 
         <div className="constellations-panel">
-          {constellation.map((d) => {
+          {constellation?.map((d) => {
             return (
               <div
                 key={d.name}

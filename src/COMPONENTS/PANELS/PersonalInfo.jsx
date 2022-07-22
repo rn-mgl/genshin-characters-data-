@@ -24,12 +24,12 @@ export default function PersonalInfo(props) {
 
   if (props.name !== undefined) {
     const charName =
-      props.name.startsWith("Sangonomiya") ||
-      props.name.startsWith("Kamisato") ||
-      props.name.startsWith("Arataki")
-        ? props.name.split(" ")[1]
-        : props.name.startsWith("Raiden")
-        ? props.name.split(" ")[0]
+      props.name?.startsWith("Sangonomiya") ||
+      props.name?.startsWith("Kamisato") ||
+      props.name?.startsWith("Arataki")
+        ? props.name?.split(" ")[1]
+        : props.name?.startsWith("Raiden")
+        ? props.name?.split(" ")[0]
         : props.name;
     return (
       <React.Fragment>

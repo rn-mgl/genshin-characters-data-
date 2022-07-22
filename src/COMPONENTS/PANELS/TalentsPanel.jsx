@@ -76,7 +76,7 @@ export default function TalentsPanel({ passive, skill, vision, character }) {
               )}
             </div>
             <div className="passive-texts-container">
-              {passive.map((d) => {
+              {passive?.map((d) => {
                 return (
                   <div className="per-passive" key={d.name}>
                     <div className="passive-name">{d.name}</div>
@@ -138,7 +138,7 @@ export default function TalentsPanel({ passive, skill, vision, character }) {
               )}
             </div>
             <div className="skill-texts-container">
-              {skill.map((d) => {
+              {skill?.map((d) => {
                 return (
                   <div className="per-skill" key={d.name}>
                     <div className="skill-name">{d.name}</div>

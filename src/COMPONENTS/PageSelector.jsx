@@ -19,10 +19,10 @@ export default function PageSelector(props) {
   }
 
   for (let i = 0; i < pageLength; i++) {
-    pages.push(i);
+    pages?.push(i);
   }
 
-  const mappedPages = pages.map((d) => {
+  const mappedPages = pages?.map((d) => {
     return (
       <div
         onClick={() => changePage(d)}
