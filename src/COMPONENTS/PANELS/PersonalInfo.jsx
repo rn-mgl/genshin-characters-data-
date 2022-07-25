@@ -41,7 +41,11 @@ export default function PersonalInfo(props) {
           <div className="character-main-info-container">
             <div className="name-and-description-container">
               <div className="name">{charName}</div>
-              <div className="description">{props.description}</div>
+              <div className="description">
+                {props.description
+                  ? props.description
+                  : "The time has not yet come for this person's corner of the night sky to light up."}
+              </div>
             </div>
             <img
               className="character-page-img"

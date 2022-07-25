@@ -22,7 +22,7 @@ export default function TalentsPanel({ passive, skill, vision, character }) {
 
   const [visible, setVisible] = React.useState("");
 
-  function showInfo(id, e) {
+  function showPassiveInfo(id, e) {
     if (id === visible) {
       setVisible("");
       e.target.className = "see-more-btn";
@@ -30,7 +30,20 @@ export default function TalentsPanel({ passive, skill, vision, character }) {
     } else if (visible !== "") {
       return;
     } else {
-      e.target.className = "see-more-btn info-visible";
+      e.target.className = "see-more-btn passive-info-visible";
+      setVisible(id);
+    }
+  }
+
+  function showSkillInfo(id, e) {
+    if (id === visible) {
+      setVisible("");
+      e.target.className = "see-more-btn";
+      return;
+    } else if (visible !== "") {
+      return;
+    } else {
+      e.target.className = "see-more-btn skill-info-visible";
       setVisible(id);
     }
   }
@@ -83,7 +96,7 @@ export default function TalentsPanel({ passive, skill, vision, character }) {
                     <div className="passive-unlock">{d.unlock}</div>
                     <div
                       style={mainColor}
-                      onClick={(e) => showInfo(d.name, e)}
+                      onClick={(e) => showPassiveInfo(d.name, e)}
                       className="see-more-btn"
                       disabled={visible !== d.name}
                     >
@@ -149,7 +162,7 @@ export default function TalentsPanel({ passive, skill, vision, character }) {
 
                     <div
                       style={mainColor}
-                      onClick={(e) => showInfo(d.name, e)}
+                      onClick={(e) => showSkillInfo(d.name, e)}
                       className="see-more-btn"
                       disabled={visible !== d.name}
                     >
