@@ -711,7 +711,7 @@ body {
     height: auto;
     padding-bottom: 2rem;
 
-    margin-top: 19rem;
+    margin-top: 15rem;
   }
 
   .name-and-description-container {
@@ -725,7 +725,7 @@ body {
     font-weight: 900;
     word-wrap: break-word;
 
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     text-align: center;
 
     color: var(--black);
@@ -750,7 +750,7 @@ body {
   .character-page-img {
     position: absolute;
 
-    height: 20rem;
+    height: 18rem;
 
     top: 5%;
     left: 50%;
@@ -1029,6 +1029,17 @@ body {
 }
 
 @media (max-width: 480px) {
+  .talents-body {
+    background: var(--white);
+    height: auto;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
   .talents-header {
     text-align: center;
 
@@ -1154,11 +1165,12 @@ body {
   }
 
   .passive-texts-container {
-    display: grid;
+    display: flex;
     align-items: center;
     justify-content: center;
-
-    gap: 6rem;
+    flex-direction: column;
+    width: auto;
+    row-gap: 6rem;
   }
 
   .per-passive {
@@ -1170,8 +1182,6 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    z-index: 1;
 
     margin-top: 2rem;
   }
